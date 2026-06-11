@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding RSVP Dashboard</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<h1>💍 Chanuth & Dumali RSVP Dashboard</h1>
+
+<div class="stats">
+  <div id="total">Total RSVPs: 0</div>
+  <div id="accepted">Accepted: 0</div>
+  <div id="declined">Declined: 0</div>
+  <div id="guestTotal">Total Guests: 0</div>
+</div>
+
+<div class="tools">
+  <input
+    type="text"
+    id="searchBox"
+    placeholder="Search guest..."
+  >
+
+  <button onclick="exportCSV()">
+    Export CSV
+  </button>
+</div>
+
+<h2>Guest List</h2>
+
+<div id="list"></div>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+</html>
