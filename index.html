@@ -1,92 +1,39 @@
-<div id="loader">
-  <h1>Chanuth ❤️ Dumali</h1>
-  <p>Loading Invitation...</p>
-</div>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chanuth & Dumali Wedding</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Wedding RSVP Dashboard</title>
+<link rel="stylesheet" href="admin.css">
 </head>
-
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="overlay">
-    <h3 class="save-date">Save The Date</h3>
+<h1>💍 Chanuth & Dumali RSVP Dashboard</h1>
 
-    <h1>Chanuth & Dumali</h1>
-
-    <p class="subtitle">
-      Together with our families,<br>
-      we request the honour of your presence
-      at our wedding ceremony.
-    </p>
-
-    <div class="date-box">
-      13 May 2027 | 8:30 AM
-    </div>
-
-    <a href="#details" class="btn">Open Invitation</a>
-  </div>
+<div class="stats">
+  <div id="total">Total RSVPs: 0</div>
+  <div id="accepted">Accepted: 0</div>
+  <div id="declined">Declined: 0</div>
+  <div id="guestTotal">Total Guests: 0</div>
 </div>
 
-<!-- DETAILS -->
-<section id="details">
-  <h2>Wedding Ceremony</h2>
-  <p>13 May 2027</p>
-  <p>8:30 AM</p>
-  <p>Deandra Hotel, Piliyandala</p>
+<div class="tools">
+  <input
+    type="text"
+    id="searchBox"
+    placeholder="Search guest..."
+  >
 
-  <a target="_blank"
-     href="https://www.google.com/maps?q=deandra+hotel+piliyandala">
-     View Location
-  </a>
-</section>
+  <button onclick="exportCSV()">
+    Export CSV
+  </button>
+</div>
 
-<!-- COUNTDOWN -->
-<section class="countdown">
-  <h2>Countdown</h2>
-  <div id="timer"></div>
-</section>
+<h2>Guest List</h2>
 
-<!-- RSVP -->
-<section class="rsvp">
-  <h2>RSVP</h2>
+<div id="list"></div>
 
-  <form id="rsvpForm">
-    <input type="text" id="name" placeholder="Full Name" required>
-
-    <select id="attendance">
-      <option value="accept">Joyfully Accept</option>
-      <option value="decline">Regretfully Decline</option>
-    </select>
-
-    <select id="guestCount">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-
-    <textarea id="message" placeholder="Message"></textarea>
-
-    <button type="submit">Submit RSVP</button>
-  </form>
-
-  <div id="successMessage"></div>
-</section>
-
-<!-- JS -->
-<script type="module" src="firebase.js"></script>
-<script type="module" src="app.js"></script>
+<script type="module" src="admin.js"></script>
 
 </body>
 </html>
