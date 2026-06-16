@@ -3,7 +3,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
   getFirestore,
   collection,
-  onSnapshot
+  onSnapshot,
+  deleteDoc,
+  doc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -43,18 +45,24 @@ function renderGuests(data){
     }
 
     list.innerHTML += `
-      <div class="card">
-        <h3>${guest.name}</h3>
+  <div class="card">
 
-        <p class="${guest.attendance}">
-          ${guest.attendance}
-        </p>
+    <h3>${guest.name}</h3>
 
-        <p>Guests: ${guest.guestCount}</p>
+    <p class="${guest.attendance}">
+      ${guest.attendance}
+    </p>
 
-        <p>${guest.message || ""}</p>
-      </div>
-    `;
+    <p>Guests: ${guest.guestCount}</p>
+
+    <p>${guest.message || ""}</p>
+
+    <button onclick="deleteRSVP('${guest.id}')">
+      🗑 Delete
+    </button>
+
+  </div>
+`;
   });
 
   document.getElementById("total").innerHTML =
@@ -74,9 +82,14 @@ onSnapshot(collection(db,"rsvps"),(snapshot)=>{
 
   allData = [];
 
-  snapshot.forEach((doc)=>{
-    allData.push(doc.data());
+  snapshot.forEach((document)=>{
+
+  allData.push({
+    id: document.id,
+    ...document.data()
   });
+
+});
 
   renderGuests(allData);
 });
@@ -117,4 +130,28 @@ window.exportCSV = function(){
   a.href = url;
   a.download = "rsvp-list.csv";
   a.click();
+}
+window.deleteRSVP = async function(id){
+
+  const confirmDelete =
+    confirm("Delete this RSVP?");
+
+  if(!confirmDelete) return;
+
+  try{
+
+    await deleteDoc(
+      doc(db, "rsvps", id)
+    );
+
+    alert("RSVP Deleted!");
+
+  }catch(error){
+
+    console.error(error);
+
+    alert("Delete Failed!");
+
+  }
+
 }

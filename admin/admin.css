@@ -56,3 +56,13 @@ body{
     color:#f44336;
     font-weight:bold;
   }
+  button{
+  padding:10px 15px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.card button{
+  margin-top:10px;
+}
