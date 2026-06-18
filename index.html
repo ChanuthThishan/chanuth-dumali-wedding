@@ -409,6 +409,20 @@ days + " Days Remaining";
 
 },1000);
 
+  document
+.getElementById("openBtn")
+.addEventListener("click",()=>{
+
+document
+.getElementById("welcomeScreen")
+.classList.add("fadeOut");
+
+document
+.getElementById("bgMusic")
+.play();
+
+});
+
 </script>
   
   <script type="module" src="firebase.js"></script>
