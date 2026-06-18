@@ -18,11 +18,24 @@ function updateCountdown() {
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   timer.innerHTML = `
-    <div>${days} Days</div>
-    <div>${hours} Hours</div>
-    <div>${minutes} Minutes</div>
-    <div>${seconds} Seconds</div>
-  `;
+
+<div class="time-box">
+${days}<br>Days
+</div>
+
+<div class="time-box">
+${hours}<br>Hours
+</div>
+
+<div class="time-box">
+${minutes}<br>Minutes
+</div>
+
+<div class="time-box">
+${seconds}<br>Seconds
+</div>
+`;
+
 }
 
 setInterval(updateCountdown, 1000);
