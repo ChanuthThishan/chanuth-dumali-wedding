@@ -1,66 +1,143 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chanuth & Dumali Wedding</title>
+<title>Chanuth & Dumali Wedding Invitation</title>
 
 <style>
-body{
+*{
 margin:0;
-font-family:Arial,sans-serif;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Georgia, serif;
 background:#000;
-color:white;
+color:#fff;
 text-align:center;
 }
 
 .hero{
-min-height:100vh;
+height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 padding:20px;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600');
+background-size:cover;
+background-position:center;
 }
 
 h1{
+font-size:4rem;
 color:gold;
-font-size:3rem;
+margin-bottom:10px;
+}
+
+h2{
+font-size:1.5rem;
+margin-bottom:20px;
+}
+
+.details{
+font-size:1.2rem;
+line-height:2;
 }
 
 .btn{
 display:inline-block;
-padding:15px 30px;
+margin-top:30px;
+padding:15px 35px;
 background:gold;
-color:black;
+color:#000;
 text-decoration:none;
-border-radius:50px;
-margin-top:20px;
 font-weight:bold;
+border-radius:50px;
+}
+
+.section{
+padding:60px 20px;
+}
+
+.countdown{
+font-size:1.5rem;
+color:gold;
+margin-top:20px;
+}
+
+footer{
+padding:30px;
+border-top:1px solid #333;
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="hero">
+<section class="hero">
 
 <h2>Wedding Invitation</h2>
 
 <h1>Chanuth ❤️ Dumali</h1>
 
-<p>13 May 2027</p>
+<div class="details">
+<p>📅 13 May 2027</p>
+<p>⏰ 8:30 AM</p>
+<p>📍 Deandra Hotel, Piliyandala</p>
+</div>
 
-<p>8:30 AM</p>
-
-<p>Deandra Hotel, Piliyandala</p>
+<div class="countdown" id="countdown"></div>
 
 <a class="btn"
+target="_blank"
 href="https://www.google.com/maps?sca_esv=bcc915fd4b92abab&output=search&q=deandra+hotel+piliyandala">
-View Location
-</a>
+View Location </a>
 
-</div>
+</section>
+
+<section class="section">
+
+<h2 style="color:gold;">
+Together with their families
+</h2>
+
+<p>
+request the pleasure of your company
+at the celebration of their marriage.
+</p>
+
+</section>
+
+<footer>
+<h2 style="color:gold;">Chanuth ❤️ Dumali</h2>
+<p>We look forward to celebrating with you</p>
+</footer>
+
+<script>
+
+const weddingDate =
+new Date("May 13, 2027 08:30:00").getTime();
+
+setInterval(function(){
+
+const now = new Date().getTime();
+const distance = weddingDate - now;
+
+const days =
+Math.floor(distance / (1000*60*60*24));
+
+document.getElementById("countdown").innerHTML =
+days + " Days Remaining";
+
+},1000);
+
+</script>
 
 </body>
 </html>
