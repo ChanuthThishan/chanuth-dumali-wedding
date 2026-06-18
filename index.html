@@ -90,6 +90,7 @@ border-top:1px solid #333;
 <p>📅 13 May 2027</p>
 <p>⏰ 8:30 AM</p>
 <p>📍 Deandra Hotel, Piliyandala</p>
+  <div id="timer"></div>
 </div>
 
 <div class="countdown" id="countdown"></div>
@@ -113,7 +114,59 @@ at the celebration of their marriage.
 </p>
 
 </section>
+<section style="padding:60px 20px;max-width:700px;margin:auto;">
 
+<h2 style="color:gold;margin-bottom:20px;">
+RSVP
+</h2>
+
+<form id="rsvpForm">
+
+<input
+type="text"
+id="name"
+placeholder="Your Name"
+required
+style="width:100%;padding:15px;margin:10px 0;border-radius:10px;">
+
+<select
+id="attendance"
+style="width:100%;padding:15px;margin:10px 0;border-radius:10px;">
+
+<option value="accept">Accept with Pleasure</option>
+<option value="decline">Regretfully Decline</option>
+
+</select>
+
+<input
+type="number"
+id="guestCount"
+placeholder="Number of Guests"
+value="1"
+min="1"
+style="width:100%;padding:15px;margin:10px 0;border-radius:10px;">
+
+<textarea
+id="message"
+placeholder="Leave a Message"
+style="width:100%;padding:15px;margin:10px 0;border-radius:10px;">
+</textarea>
+
+<button
+type="submit"
+style="padding:15px 30px;background:gold;border:none;border-radius:50px;font-weight:bold;">
+Submit RSVP
+</button>
+
+</form>
+
+<div
+id="successMessage"
+style="margin-top:20px;color:gold;font-weight:bold;">
+</div>
+
+</section>
+  
 <footer>
 <h2 style="color:gold;">Chanuth ❤️ Dumali</h2>
 <p>We look forward to celebrating with you</p>
@@ -138,6 +191,9 @@ days + " Days Remaining";
 },1000);
 
 </script>
+  
+  <script type="module" src="firebase.js"></script>
+<script type="module" src="app.js"></script>
 
 </body>
 </html>
