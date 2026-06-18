@@ -75,8 +75,3 @@ form.addEventListener("submit", async (e) => {
     successMessage.innerHTML = "❌ Something went wrong. Try again.";
   }
 });
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.getElementById("loader").style.display = "none";
-  }, 2000);
-});
